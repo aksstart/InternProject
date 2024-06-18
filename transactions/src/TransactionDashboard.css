@@ -1,0 +1,163 @@
+body {
+  background-color: #000; /* black background */
+  color: #fff; /* white text */
+}
+
+.transaction-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.transaction-dashboard h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #fff; /* white text */
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: space-between;
+  background-color: #333; /* dark gray background */
+  padding: 10px;
+  border: 1px solid #444; /* dark gray border */
+  border-radius: 5px;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-box input[type="text"] {
+  /* flex: 1; */
+  width: 200px;
+  /* padding: 10px; */
+  font-size: 16px;
+  border: none;
+  background-color: #333; /* dark gray background */
+  color: #fff; /* white text */
+}
+
+.search-box button[type="submit"] {
+  /* padding: 10px 20px; */
+  margin-left: 40px;
+  /* margin-right: 10px; */
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #4caf50; /* green background */
+  color: #fff; /* white text */
+  width: 100px;
+}
+
+.search-box button[type="submit"]:hover {
+  background-color: #3e8e41; /* darker green background */
+}
+
+.month-dropdown {
+  margin-left: 50px;
+}
+
+.month-dropdown select {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #333; /* dark gray background */
+  color: #fff; /* white text */
+  width: 150px;
+}
+
+.statistics {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #333; /* dark gray background */
+  border: 1px solid #444; /* dark gray border */
+  border-radius: 5px;
+}
+
+.statistics h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff; /* white text */
+}
+
+.statistics p {
+  margin-bottom: 10px;
+  color: #fff; /* white text */
+}
+
+.chart-container {
+  margin-top: 20px;
+}
+
+.chart-container canvas {
+  width: 100%;
+  height: 300px;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination button[type="button"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #4caf50; /* green background */
+  color: #fff; /* white text */
+}
+
+.pagination button[type="button"]:hover {
+  background-color: #3e8e41; /* darker green background */
+}
+
+.page-info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #fff; /* white text */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #444; /* dark gray border */
+  padding: 10px;
+  text-align: left;
+  color: #ffffff; /* white text */
+}
+
+th {
+  color: #3f08f3;
+}
+
+th {
+  background-color: #333; /* dark gray background */
+}
+
+.transaction-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.page-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
