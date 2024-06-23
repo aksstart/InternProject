@@ -11,6 +11,7 @@ const TransactionDashboard = () => {
   const [perPage, setPerpage] = useState(5); // Number of transactions per page
   const [totalPages, setTotalPages] = useState(1);
   const [statistics, setStatistics] = useState(null); // State to store statistics
+  const [loading, setLoading] = useState(true); // Add a loading state
   const chartRef = useRef(null); // Ref to store chart instance
 
   useEffect(() => {
@@ -35,8 +36,10 @@ const TransactionDashboard = () => {
       // else{
       //   setPerpage(5);
       // }
+      setLoading(false); // Set loading to false when data is fetched
     } catch (error) {
       console.error('Error fetching transactions:', error);
+      setLoading(false); // Set loading to false when data is fetched
     }
   };
 
@@ -73,7 +76,7 @@ const TransactionDashboard = () => {
     try {
       const response = await axios.get(`/api/transactions?month=${selectedMonth}&search=${searchText}`);
       setTransactions(response.data.transactions);
-      setTotalPages(Math.ceil(response.data.totalCount / perPage));
+      setTotalPages(response.data.totalPages);
     } catch (error) {
       console.error('Error searching transactions:', error);
     }
@@ -98,6 +101,12 @@ const TransactionDashboard = () => {
     }
 
     const ctx = document.getElementById('barChart').getContext('2d');
+
+    const canvasWidth = 400; // adjust the width to your liking
+    const canvasHeight = 200; // adjust the height to your liking
+
+    ctx.canvas.width = canvasWidth;
+    ctx.canvas.height = canvasHeight;
 
     chartRef.current = new Chart(ctx, {
       type: 'bar',
@@ -168,8 +177,15 @@ const TransactionDashboard = () => {
     });
   };
 
-  return (
-    <div className="transaction-dashboard">
+return (
+  <div className="transaction-dashboard">
+    {loading ? (
+      <div className="loader">
+        <p>Loading...</p>
+      </div>
+    ) : (
+      // Render the dashboard content when loading is false
+      <div>
       <h1>Transaction Dashboard</h1>
       <div className="toolbar">
         <div className="search-box">
@@ -247,10 +263,12 @@ const TransactionDashboard = () => {
 
       {/* Display bar chart */}
       <div className="chart-container">
-        <canvas id="barChart" width={400} height={300}></canvas>
+        <canvas id="barChart" width={50} height={30}></canvas>
       </div>
-    </div>
-  );
+      </div>
+    )}
+  </div>
+);
 };
 
 export default TransactionDashboard;
